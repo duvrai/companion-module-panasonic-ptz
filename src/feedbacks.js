@@ -1,6 +1,6 @@
 import { combineRgb } from '@companion-module/base'
 import { getAndUpdateSeries } from './common.js'
-import { isPresetStored, PRESET_NUMBER_CHOICES } from './preset-entries.js'
+import { isPresetStored } from './preset-entries.js'
 
 // ##########################
 // #### Define Feedbacks ####
@@ -268,7 +268,7 @@ export function getFeedbackDefinitions(self) {
 		}
 	}
 
-	feedbacks.presetStored = {
+	feedbacks.presetSet = {
 		type: 'boolean',
 		name: 'Preset - Set',
 		description: 'Indicate whether the selected preset position is set (stored) or unset on the camera',
@@ -278,11 +278,12 @@ export function getFeedbackDefinitions(self) {
 		},
 		options: [
 			{
-				type: 'dropdown',
-				label: 'Preset',
+				type: 'number',
+				label: 'Preset number',
 				id: 'preset',
-				default: '01',
-				choices: PRESET_NUMBER_CHOICES,
+				default: 1,
+				min: 1,
+				max: 100,
 			},
 			{
 				type: 'dropdown',
