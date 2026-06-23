@@ -13,16 +13,17 @@ export const PRESET_NUMBER_CHOICES = Array.from({ length: 100 }, (_, index) => {
 })
 
 export function parsePresetEntryLine(line) {
-	const match = line.trim().match(/^pE(00|01|02)([0-9A-Fa-f]+)$/i)
+	const match = line.trim().match(/^(pE00|pE01|pE02)([0-9A-Fa-f]+)$/i)
 	if (!match) return null
 
-	const bankKey = `pE${match[1]}`
+	const bankKey = match[1]
 	const bank = PRESET_ENTRY_BANKS[bankKey]
-	const value = parseInt(match[2].slice(-10), 16)
+	const hexDigits = bank.bits / 4
+	const value = BigInt(`0x${match[2].slice(-hexDigits)}`)
 	const presets = []
 
 	for (let bit = 1; bit <= bank.bits; bit++) {
-		if ((value >> (bit - 1)) & 1) {
+		if ((value >> BigInt(bit - 1)) & 1n) {
 			presets.push(bank.base + bit - 1)
 		}
 	}

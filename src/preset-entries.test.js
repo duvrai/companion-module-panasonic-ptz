@@ -15,4 +15,7 @@ assert.equal(isPresetStored(data, '03'), true)
 assert.equal(isPresetStored(data, '11'), false)
 assert.equal(isPresetStored(data, '04'), false)
 
+// AW-HE2 camdata dump: presets 1-9 stored
+assert.deepEqual(parsePresetEntryLine('pE0000000001FF')?.presets, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+
 console.log('preset-entries.test.js passed')
