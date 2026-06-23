@@ -8,6 +8,5 @@ export const UpgradeScripts = [
 		autoFocus: true,
 		autoIris: true,
 		modePset: true,
-		presetSet: true,
 	}),
 ]

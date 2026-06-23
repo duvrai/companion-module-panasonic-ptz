@@ -1,6 +1,6 @@
 {
 	"name": "panasonic-ptz",
-	"version": "2.5.3",
+	"version": "2.5.2",
 	"main": "src/index.js",
 	"type": "module",
 	"scripts": {
@@ -8,7 +8,7 @@
 		"lint": "yarn lint:raw .",
 		"format": "prettier -w .",
 		"test": "node src/preset-entries.test.js",
-		"build": "companion-module-build && cp pkg.tgz panasonic-ptz-duvrai-2.5.3.tgz"
+		"build": "companion-module-build && cp pkg.tgz panasonic-ptz-2.5.2.tgz"
 	},
 	"license": "MIT",
 	"repository": {
