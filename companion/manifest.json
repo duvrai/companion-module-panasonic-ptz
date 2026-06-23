@@ -5,8 +5,8 @@
 	"description": "Companion module for Panasonic PTZ Cameras",
 	"version": "2.5.1",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-panasonic-ptz.git",
-	"bugs": "https://github.com/bitfocus/companion-module-panasonic-ptz/issues",
+	"repository": "git+https://github.com/duvrai/companion-module-panasonic-ptz.git",
+	"bugs": "https://github.com/duvrai/companion-module-panasonic-ptz/issues",
 	"maintainers": [
 		{
 			"name": "Andreas H. Thomsen",
