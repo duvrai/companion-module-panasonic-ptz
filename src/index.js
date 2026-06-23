@@ -162,11 +162,20 @@ class PanasonicPTZInstance extends InstanceBase {
 				.get(url)
 				.then((response) => {
 					if (response.body) {
-						const lines = response.body.split('\r\n') // Split Data in order to remove data before and after command
+						const lines = response.body.split(/\r?\n/) // Split Data in order to remove data before and after command
 
 						for (let line of lines) {
+							line = line.trim()
+							if (!line) continue
+
+							// Preset entry bitmaps are a single token (pE00...)
+							if (line.startsWith('pE')) {
+								applyPresetEntryLine(this.data, line)
+								continue
+							}
+
 							// remove new line, carage return and so on.
-							const str = line.trim().split(':') // Split Commands and data
+							const str = line.split(':') // Split Commands and data
 							if (this.config.debug) {
 								this.log('info', 'Received CMD: ' + String(str))
 							}

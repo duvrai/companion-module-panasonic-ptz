@@ -1,13 +1,14 @@
 {
 	"name": "panasonic-ptz",
-	"version": "2.5.1",
+	"version": "2.5.2",
 	"main": "src/index.js",
 	"type": "module",
 	"scripts": {
 		"lint:raw": "eslint",
 		"lint": "yarn lint:raw .",
 		"format": "prettier -w .",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "node src/preset-entries.test.js",
+		"build": "companion-module-build && cp pkg.tgz panasonic-ptz-2.5.2.tgz"
 	},
 	"license": "MIT",
 	"repository": {

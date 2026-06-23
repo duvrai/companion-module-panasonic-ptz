@@ -268,40 +268,40 @@ export function getFeedbackDefinitions(self) {
 		}
 	}
 
-	if (SERIES.feedbacks.preset) {
-		feedbacks.presetStored = {
-			type: 'boolean',
-			name: 'Preset - Stored',
-			description: 'Indicate whether the selected preset position is stored on the camera',
-			defaultStyle: {
-				color: foregroundColor,
-				bgcolor: backgroundColorGreen,
+	feedbacks.presetStored = {
+		type: 'boolean',
+		name: 'Preset - Set',
+		description: 'Indicate whether the selected preset position is set (stored) or unset on the camera',
+		defaultStyle: {
+			color: foregroundColor,
+			bgcolor: backgroundColorGreen,
+		},
+		options: [
+			{
+				type: 'dropdown',
+				label: 'Preset',
+				id: 'preset',
+				default: '01',
+				choices: PRESET_NUMBER_CHOICES,
 			},
-			options: [
-				{
-					type: 'dropdown',
-					label: 'Preset',
-					id: 'preset',
-					default: '01',
-					choices: PRESET_NUMBER_CHOICES,
-				},
-				{
-					type: 'dropdown',
-					label: 'Indicate when preset is',
-					id: 'state',
-					default: '1',
-					choices: [
-						{ id: '1', label: 'Stored' },
-						{ id: '0', label: 'Not stored' },
-					],
-				},
-			],
-			callback: function (feedback) {
-				const stored = isPresetStored(self.data, feedback.options.preset)
-				return feedback.options.state === '1' ? stored : !stored
+			{
+				type: 'dropdown',
+				label: 'Indicate when preset is',
+				id: 'state',
+				default: '1',
+				choices: [
+					{ id: '1', label: 'Set (stored)' },
+					{ id: '0', label: 'Unset (not stored)' },
+				],
 			},
-		}
+		],
+		callback: function (feedback) {
+			const stored = isPresetStored(self.data, feedback.options.preset)
+			return feedback.options.state === '1' ? stored : !stored
+		},
+	}
 
+	if (SERIES.feedbacks.preset) {
 		feedbacks.recallModePset = {
 			type: 'boolean',
 			name: 'Preset - Mode A, B, C',

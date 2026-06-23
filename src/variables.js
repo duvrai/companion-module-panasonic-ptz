@@ -49,8 +49,8 @@ export function setVariables(self) {
 	}
 	if (SERIES.variables.preset) {
 		variables.push({ variableId: 'presetMode', name: 'Preset Mode' })
-		variables.push({ variableId: 'storedPresets', name: 'Stored Preset Numbers' })
 	}
+	variables.push({ variableId: 'storedPresets', name: 'Stored Preset Numbers' })
 	variables.push({ variableId: 'ptSpeedVar', name: 'Pan/Tilt Speed' })
 	variables.push({ variableId: 'pSpeedVar', name: 'Pan Speed' })
 	variables.push({ variableId: 'tSpeedVar', name: 'Tilt Speed' })

@@ -148,7 +148,7 @@ A list of all the available Feedbacks in this module sorted into the following c
 
 **Preset**
 
-- Stored (select preset number; indicate when stored or not stored)
+- Set (select preset number; indicate when set/stored or unset/not stored)
 
 ## Variables (Preset)
 
