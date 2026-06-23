@@ -5,6 +5,7 @@ import { getFeedbackDefinitions } from './feedbacks.js'
 import { getPresetDefinitions } from './presets.js'
 import { setVariables, checkVariables } from './variables.js'
 import { ConfigFields } from './config.js'
+import { applyPresetEntryLine } from './preset-entries.js'
 import * as net from 'net'
 import got from 'got'
 import EventEmitter from 'events'
@@ -183,6 +184,10 @@ class PanasonicPTZInstance extends InstanceBase {
 		}
 	}
 	storeData(str) {
+		if (applyPresetEntryLine(this.data, str[0])) {
+			return
+		}
+
 		if (str[0].substring(0, 3) === 'rER') {
 			if (str[0] === 'rER00') {
 				this.data.error = 'No Errors'
@@ -334,6 +339,8 @@ class PanasonicPTZInstance extends InstanceBase {
 			colorBarTitle: 'NaN',
 			colorBarTone: 'NaN',
 			colorBarType: 'Nan',
+			presetEntryBanks: { pE00: [], pE01: [], pE02: [] },
+			storedPresets: [],
 		}
 
 		this.ptSpeed = 25

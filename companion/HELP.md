@@ -146,6 +146,14 @@ A list of all the available Feedbacks in this module sorted into the following c
 
 - Auto Iris Mode
 
+**Preset**
+
+- Stored (select preset number; indicate when stored or not stored)
+
+## Variables (Preset)
+
+- Stored Preset Numbers (comma-separated list of stored preset slots, e.g. `1, 2, 3`)
+
 Current support is based on "HD/4K Integrated Camera Interface Specifications" version 1.12 from Apr. 27, 2020.
 
 For additional actions, please raise a feature request on [GitHub](https://github.com/bitfocus/companion-module-panasonic-ptz/).

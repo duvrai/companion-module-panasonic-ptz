@@ -49,6 +49,7 @@ export function setVariables(self) {
 	}
 	if (SERIES.variables.preset) {
 		variables.push({ variableId: 'presetMode', name: 'Preset Mode' })
+		variables.push({ variableId: 'storedPresets', name: 'Stored Preset Numbers' })
 	}
 	variables.push({ variableId: 'ptSpeedVar', name: 'Pan/Tilt Speed' })
 	variables.push({ variableId: 'pSpeedVar', name: 'Pan Speed' })
@@ -89,6 +90,7 @@ export function checkVariables(self) {
 		irisMode: self.data.irisMode,
 		gainValue: gainValue?.label,
 		presetMode: self.data.recallModePset,
+		storedPresets: (self.data.storedPresets ?? []).join(', '),
 		ptSpeedVar: self.ptSpeed,
 		pSpeedVar: self.pSpeed,
 		tSpeedVar: self.tSpeed,
